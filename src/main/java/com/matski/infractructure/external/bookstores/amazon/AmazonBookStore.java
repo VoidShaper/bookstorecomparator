@@ -9,11 +9,15 @@ import com.matski.domain.money.Price;
 import com.matski.infractructure.jsoup.JsoupClient;
 import com.matski.infractructure.jsoup.JsoupRetrieveResult;
 import com.matski.infractructure.jsoup.JsoupRetrieveSuccess;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.time.Duration;
 import java.util.Optional;
 
 public class AmazonBookStore implements BookStore {
+
+    private static final Logger logger = LoggerFactory.getLogger(AmazonBookStore.class);
 
     private static final int MAX_RETRY = 4;
     private static final String BOOK_STORE_NAME = "Amazon";
@@ -42,7 +46,7 @@ public class AmazonBookStore implements BookStore {
                 return bookOffer.get();
             }
 
-            System.out.println(String.format("Trial %d failed: reattempting soon", trial));
+           logger.info("Trial {} failed: reattempting soon", trial);
             waitForInterval();
             ++trial;
         }
