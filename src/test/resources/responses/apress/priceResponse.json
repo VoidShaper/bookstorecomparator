@@ -1,0 +1,13 @@
+[
+  {
+    "type": "book",
+    "id": "9781484230954",
+    "price": {
+      "bestPrice": 35.69,
+      "bestPriceFmt": "$39.99",
+      "listPrice": 39.99,
+      "listPriceFmt": "$39.99"
+    },
+    "showFrom": true
+  }
+]
